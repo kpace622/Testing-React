@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import StarWarsCharacters from "./components/StarWarsCharacters";
+import DropdownList from './api/index';
 
 function App() {
   return (
@@ -11,8 +12,10 @@ function App() {
           width="300"
           alt="logo"
         />
-      </header>
+      </header>      
+      {/* <DropdownList /> */}
       <StarWarsCharacters />
+
     </div>
   );
 }

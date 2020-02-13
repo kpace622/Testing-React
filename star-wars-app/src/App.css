@@ -12,3 +12,26 @@
   align-items: center;
   justify-content: center;
 }
+
+#show { 
+display: block;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: white;
+  background-color: gray;
+  width: 9%;
+  margin: 0 auto
+}
+
+.links:hover {
+  background-color: #ffc402;
+}
+

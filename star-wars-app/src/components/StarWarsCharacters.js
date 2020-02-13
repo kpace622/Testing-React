@@ -33,8 +33,46 @@ export default function StarWarsCharacters() {
     setUrl(previous);
   };
 
+
+// this functions toggles the dropdown on and off
+  const handleDropdown = () => {
+    document.getElementById('myDropdown').classList.toggle('show');
+    document.getElementById('myDropdown').classList.toggle('dropdown-content')
+}
+
+
+//The following four functions change the API call to the respective element: people, planets, starships, and vehicles
+const handlePeople = () => {
+    setUrl('https://swapi.co/api/people')
+    document.getElementById('myDropdown').classList.toggle('dropdown-content');
+}
+
+const handlePlanets = () => {
+  setUrl('https://swapi.co/api/planets')
+  document.getElementById('myDropdown').classList.toggle('dropdown-content');
+}
+
+const handleStarships = () => {
+  setUrl('https://swapi.co/api/starships')
+  document.getElementById('myDropdown').classList.toggle('dropdown-content');
+}
+
+const handleVehicles = () => {
+  setUrl('https://swapi.co/api/vehicles')
+  document.getElementById('myDropdown').classList.toggle('dropdown-content');
+}
+
   return (
     <div>
+      <div className='dropdown'>
+            <button onClick={handleDropdown}>Sort Data</button>
+            <div id='myDropdown' className='dropdown-content'>
+                <button onClick={handlePeople} className='links'>People</button>
+                <button onClick={handlePlanets} className='links' >Planets</button>
+                <button onClick={handleStarships} className='links' >Starships</button>
+                <button onClick={handleVehicles} className='links' >Vehicles</button>
+            </div>
+        </div>
       {isLoading ? (
         <Loader
           type="ThreeDots"
@@ -46,7 +84,7 @@ export default function StarWarsCharacters() {
       ) : (
         <>
           {characters.map(character => (
-            <div key={character.url}>{character.name}</div>
+            <div className='character' key={character.url}>{character.name}</div>
           ))}
         </>
       )}
